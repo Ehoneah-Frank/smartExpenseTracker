@@ -1,21 +1,34 @@
 import express from 'express'
 import dbConnection from './config/db.js';
+import authRouter from './routes/authRoute.js';
+import userRouter from './routes/userRoute.js';
+import expenseRouter from './routes/expenseRoute.js';
+import categoryRouter from './routes/categoryRoute.js';
+import budgetRouter from './routes/budgetRoute.js'
 
 
 
-// connect to database
+
+// Connect to database
 dbConnection();
 
 
+// Create an express app
+const trackerApp = express();
 
-// create an express app
-const expensesApp = express()
+// use middlewares
+trackerApp.use(express.json());
 
-// Use Middleware
-expensesApp.use(express.json());
+// Routes
+trackerApp.use( '/auth', authRouter);
+trackerApp.use( '/user', userRouter);
+trackerApp.use('/expense', expenseRouter);
+trackerApp.use( '/category', categoryRouter);
+trackerApp.use( '/budget', budgetRouter)
 
-// setting up the server
 const port = process.env.PORT || 8000;
-expensesApp.listen(port, ()=>{
+
+// connect to a port
+trackerApp.listen(port, () => {
     console.log(`App is listening on port ${port}`)
 });
