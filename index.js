@@ -5,6 +5,10 @@ import userRouter from './routes/userRoute.js';
 import expenseRouter from './routes/expenseRoute.js';
 import categoryRouter from './routes/categoryRoute.js';
 import budgetRouter from './routes/budgetRoute.js'
+import cors from 'cors';
+import expressOasGenerator from 'express-oas-generator';
+import mongoose from 'mongoose';
+
 
 
 
@@ -15,9 +19,17 @@ dbConnection();
 
 // Create an express app
 const trackerApp = express();
+expressOasGenerator.handleResponses(trackerApp, {
+    alwaysServeDocs: true,
+    tags: ['Auth', 'User', 'Expense', 'Category', 'Budget'],
+    mongooseModels: mongoose.modelNames(),
+});
 
 // use middlewares
+trackerApp.use(cors());
 trackerApp.use(express.json());
+
+
 
 // Routes
 trackerApp.use( '/auth', authRouter);
@@ -25,6 +37,7 @@ trackerApp.use( '/user', userRouter);
 trackerApp.use('/expenses', expenseRouter);
 trackerApp.use( '/category', categoryRouter);
 trackerApp.use( '/budget', budgetRouter)
+trackerApp.use((req, res) => res.redirect('/api-docs/'));
 
 const port = process.env.PORT || 8000;
 
