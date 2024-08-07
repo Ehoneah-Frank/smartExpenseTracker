@@ -37,6 +37,7 @@ trackerApp.use( '/user', userRouter);
 trackerApp.use('/expenses', expenseRouter);
 trackerApp.use( '/category', categoryRouter);
 trackerApp.use( '/budget', budgetRouter)
+expressOasGenerator.handleRequests();
 trackerApp.use((req, res) => res.redirect('/api-docs/'));
 
 const port = process.env.PORT || 8000;
