@@ -1,9 +1,9 @@
-import mongoose, { Schema, model, } from "mongoose";
+import mongoose, { Schema, model, Types} from "mongoose";
 
 
 const categorySchema = new Schema({
     userId:{
-        type: mongoose.Schema.Types.ObjectId,
+        type: Types.ObjectId,
         ref: "userModel",
         required: true
     },

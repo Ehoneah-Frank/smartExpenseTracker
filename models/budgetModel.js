@@ -33,12 +33,7 @@ const budgetSchema = new Schema({
             required: true,
         },
     ],
-    currentSpending: {
-        type: Number,
-        default: 0,
-    },
-
-
+   
 },{
     timestamps: true,
 });

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { createBudget, getBudgets, updateBudget, deleteBudget } from "../controllers/budgetController.js";
-import authMiddleware from "../middlewares/authmiddleware.js";
+import authMiddleware from "../middlewares/authMiddleware.js";
 
 const budgetRouter = Router();
 

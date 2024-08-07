@@ -12,6 +12,11 @@ const expenseSchema = new Schema({
         type: Number,
         required: true,
     },
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "categoryModel",
+        required: true,
+    },
     description: {
         type: String,
         required: true,
@@ -20,6 +25,12 @@ const expenseSchema = new Schema({
         type: Date,
         required: true,
     },
+    notes:{
+        type: String,
+    },
+    attachements: [{
+        type: String,
+    }],
 
 }, {
     timestamps: true,

@@ -22,7 +22,7 @@ trackerApp.use(express.json());
 // Routes
 trackerApp.use( '/auth', authRouter);
 trackerApp.use( '/user', userRouter);
-trackerApp.use('/expense', expenseRouter);
+trackerApp.use('/expenses', expenseRouter);
 trackerApp.use( '/category', categoryRouter);
 trackerApp.use( '/budget', budgetRouter)
 

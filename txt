@@ -2,23 +2,18 @@
 
 Learn how to create an endpoint to login with google and if possible facebook
 
-Learn Autorization to add to the code
 
-Add a code to delete all expenses
+Add a code to delete all expenses ---------- done
 
-Reminders and Notifications: Implement a reminder system that can notify users of upcoming recurring expenses, bill payments, or alerts when they are close to maxing out their budget.
+Reminders and Notifications: Implement a reminder system that can notify users of upcoming recurring expenses, bill payments, or alerts when they are close to maxing out their budget. ---- ------------------------------done
 
-Data Export and Import
-Allow users to export their data in various formats (e.g., CSV, PDF) for personal use or financial consultations and import data from other platforms.
 
-Financial Goals
-Allow users to set financial goals (e.g., saving for a vacation or a big purchase) and track their progress toward these goals.
 
 Notes and Attachments
 Enable users to add notes or attach images to each expense entry (like scanned receipts or invoices), providing more context to their spending.
 
 Budgeting Features
-Introduce budgeting features that allow users to set monthly budgets for each category and track their progress against these budgets. Include alerts when they are nearing or exceeding their budgets.
+Introduce budgeting features that allow users to set monthly budgets for each category and track their progress against these budgets. Include alerts when they are nearing or exceeding their budgets. -------- ---------------done
 
 Expense Analytics and Visualization
 Implement data visualization tools to help users understand their spending habits better. Use libraries like Chart.js or D3.js to create graphs and charts of their spending over time by category.
