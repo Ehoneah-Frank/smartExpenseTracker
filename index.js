@@ -26,8 +26,9 @@ expressOasGenerator.handleResponses(trackerApp, {
 });
 
 // use middlewares
-trackerApp.use(cors());
+
 trackerApp.use(express.json());
+trackerApp.use(cors({credentials: true, origin: '*'}));
 
 
 
