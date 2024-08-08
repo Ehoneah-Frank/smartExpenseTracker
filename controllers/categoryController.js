@@ -59,16 +59,38 @@ export const createCategory = async (req, res) => {
 // };
 
 // Endpoin to get all categories for a user
+
+
 export const getCategories = async (req, res) => {
   try {
     const categories = await categoryModel.find({
       userId: req.user._id,
-    });
+    }).populate("expenses");
+
     res.json(categories);
   } catch (error) {
     res.status(500).json({ message: "Failed to get categories" });
   }
 };
+
+export const getOneCategory = async (req, res) => {
+  try {
+    const category = await categoryModel.findOne({
+      _id: req.params.id,
+      userId: req.user._id,
+    }).populate('expenses');
+
+      if(!category) {
+        return res.status(404).json({message: "Category not found"});
+      }
+      res.json(category);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to get category" });
+  }
+  
+
+}
+
 
 // Endpoint to Update a category
 export const updateCategory = async (req, res) => {

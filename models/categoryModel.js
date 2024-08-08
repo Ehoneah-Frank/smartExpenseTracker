@@ -1,6 +1,8 @@
 import mongoose, { Schema, model, Types} from "mongoose";
 
 
+
+
 const categorySchema = new Schema({
     userId:{
         type: Types.ObjectId,
@@ -11,6 +13,13 @@ const categorySchema = new Schema({
         type: String,
         required: true,
     },
+    expenses: [
+        {
+            type: Types.ObjectId,
+            ref: "expenseModel",
+        
+        }
+    ]
 
 },{
     timestamps: true,
