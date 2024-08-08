@@ -22,7 +22,7 @@ dbConnection();
 const trackerApp = express();
 expressOasGenerator.handleResponses(trackerApp, {
     alwaysServeDocs: true,
-    tags: ['Auth', 'User', 'Expense', 'Category', 'Budget'],
+    tags: ['Auth', 'User', 'Expense', 'Category', 'Budget', 'Analytics'],
     mongooseModels: mongoose.modelNames(),
 });
 
