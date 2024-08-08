@@ -8,6 +8,7 @@ import budgetRouter from './routes/budgetRoute.js'
 import cors from 'cors';
 import expressOasGenerator from 'express-oas-generator';
 import mongoose from 'mongoose';
+import analyticsRouter from './routes/analyticsRoute.js';
 
 
 
@@ -38,6 +39,7 @@ trackerApp.use( '/user', userRouter);
 trackerApp.use('/expenses', expenseRouter);
 trackerApp.use( '/category', categoryRouter);
 trackerApp.use( '/budget', budgetRouter)
+trackerApp.use('/analytics', analyticsRouter)
 expressOasGenerator.handleRequests();
 trackerApp.use((req, res) => res.redirect('/api-docs/'));
 
