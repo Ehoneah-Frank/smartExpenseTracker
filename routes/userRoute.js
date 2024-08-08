@@ -6,7 +6,7 @@ import authMiddleware from "../middlewares/authMiddleware.js";
 const userRouter = Router();
 
 userRouter.get('/:id', authMiddleware, getProfile);
-userRouter.patch('/profile', authMiddleware, updateProfile);
-userRouter.patch('/password', authMiddleware, changePassword);
+userRouter.patch('/:id', authMiddleware, updateProfile);
+userRouter.patch('/password/:id', authMiddleware, changePassword);
 
 export default userRouter;

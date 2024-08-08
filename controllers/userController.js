@@ -4,9 +4,11 @@ import bcrypt from "bcrypt";
 // Get user profile
 export const getProfile = async (req, res) => {
   try {
-    const user = await userModel.findById(req.user.userId).select("-password");
+    const user = await userModel.findById(req.user._id).select("-password");
+   
     res.json(user);
   } catch (error) {
+    console.log(error.message);
     res.status(500).json({ message: "Failed to get profile" });
   }
 };
@@ -28,7 +30,7 @@ export const changePassword = async (req, res) => {
   const { oldPassword, newPassword } = req.body;
 
   try {
-    const user = await userModel.findById(req.user.userId);
+    const user = await userModel.findByIdAndUpdate(req.user._id);
     const isPasswordValid = await bcrypt.compare(oldPassword, user.password);
     if (!isPasswordValid) {
       return res.status(401).json({ message: "Invalid old password" });
