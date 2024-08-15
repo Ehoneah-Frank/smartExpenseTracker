@@ -14,17 +14,21 @@ export const signup = async (req, res) => {
 
   const email = value.email
   const findIfUserExist = await userModel.findOne({email})
+
   if (findIfUserExist) {
     return res.status(400).json({message: "User already exist"});
+
   } else{
     const hashedPassword = await bcrypt.hash(value.password, 12)
 
     value.password = hashedPassword
 
     const addUser = await userModel.create(value)
-    req.session.user = {userId: addUser._id}}
-    res.status(201).json({message: "User created successfully"})
+    // req.session.user = {userId: addUser._id}
   }
+
+    res.status(201).json({message: "User created successfully"})
+  };
 
 
 export const login = async (req, res) => {
